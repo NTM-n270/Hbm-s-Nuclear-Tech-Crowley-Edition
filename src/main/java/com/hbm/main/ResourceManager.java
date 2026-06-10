@@ -319,6 +319,7 @@ public class ResourceManager {
     public static final WaveFrontObjectVAO fluidtank = new HFRWavefrontObject(new ResourceLocation(Tags.MODID, "models/fluidtank.obj")).asVBO();
     public static final WaveFrontObjectVAO fluidtank_exploded = new HFRWavefrontObject(new ResourceLocation(Tags.MODID, "models/fluidtank_exploded.obj")).asVBO();
     public static final WaveFrontObjectVAO bat9000 = new HFRWavefrontObject(new ResourceLocation(Tags.MODID, "models/machines/bat9000.obj")).asVBO();
+    public static final WaveFrontObjectVAO bigasstank = new HFRWavefrontObject(new ResourceLocation(Tags.MODID, "models/machines/bigasstank.obj")).asVBO();
     public static final WaveFrontObjectVAO orbus = new HFRWavefrontObject(new ResourceLocation(Tags.MODID, "models/machines/orbus.obj")).asVBO();
     //Turbofan
     public static final WaveFrontObjectVAO turbofan = new HFRWavefrontObject(new ResourceLocation(Tags.MODID, "models/machines/turbofan.obj")).asVBO();
@@ -637,6 +638,7 @@ public class ResourceManager {
     public static final ResourceLocation tank_tex = new ResourceLocation(Tags.MODID, "textures/models/machines/tank.png");
     public static final ResourceLocation tank_inner_tex = new ResourceLocation(Tags.MODID, "textures/models/tank/tank_inner.png");
     public static final ResourceLocation bat9000_tex = new ResourceLocation(Tags.MODID, "textures/models/machines/bat9000.png");
+    public static final ResourceLocation bigasstank_tex = new ResourceLocation(Tags.MODID, "textures/models/machines/bigasstank.png");
     public static final ResourceLocation orbus_tex = new ResourceLocation(Tags.MODID, "textures/models/machines/orbus.png");
     //ZIRNOX
     public static final ResourceLocation zirnox_tex = new ResourceLocation(Tags.MODID, "textures/models/machines/zirnox.png");

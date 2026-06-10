@@ -275,9 +275,8 @@ public class ModItems {
     public static final Item stamp_9 = new ItemStamp("stamp_9", 1000, ItemStamp.StampType.C9);
     public static final Item stamp_50 = new ItemStamp("stamp_50", 1000, ItemStamp.StampType.C50);
     public static final Item stamp_book = new ItemStampBook("stamp_book").setMaxStackSize(1).setCreativeTab(null);
-    public static final Item blades_steel = new ItemBlades("blades_steel", 200);
-    public static final Item blades_titanium = new ItemBlades("blades_titanium", 350);
-    public static final Item blades_advanced_alloy = new ItemBlades("blades_advanced_alloy", 700);
+    public static final Item blades_steel = new ItemBlades("blades_steel", 400);
+    public static final Item blades_titanium = new ItemBlades("blades_titanium", 500);
     public static final Item blades_desh = new ItemBlades("blades_desh", 0).setMaxStackSize(1).setCreativeTab(MainRegistry.controlTab);
     public static final Item fuse = new ItemCustomLore("fuse").setMaxStackSize(16).setCreativeTab(MainRegistry.controlTab);
     public static final Item redcoil_capacitor = new ItemCapacitor(10, "redcoil_capacitor").setMaxStackSize(1).setCreativeTab(MainRegistry.controlTab);
@@ -340,7 +339,7 @@ public class ModItems {
     public static final Item battery_potatos = new ItemPotatos(5000, 0, 100, "battery_potatos").setMaxStackSize(1).setCreativeTab(MainRegistry.controlTab);
     public static final Item hev_battery = new ItemFusionCore(150000, "hev_battery").setMaxStackSize(4).setCreativeTab(MainRegistry.controlTab);
     public static final Item fusion_core = new ItemFusionCore(2500000, "fusion_core").setMaxStackSize(1).setCreativeTab(MainRegistry.controlTab);
-    public static final Item energy_core = new ItemBattery(10000000, 0, 1000, "energy_core").setMaxStackSize(1);
+    @Deprecated public static final Item energy_core = new ItemBattery(10000000, 0, 1000, "energy_core").setMaxStackSize(1);
     public static final Item fusion_core_infinite = new ItemBase("fusion_core_infinite").setMaxStackSize(1);
     public static final Item laser_crystal_co2 = new ItemFELCrystal(EnumWavelengths.IR, "laser_crystal_co2").setCreativeTab(MainRegistry.controlTab);
     public static final Item laser_crystal_bismuth = new ItemFELCrystal(EnumWavelengths.VISIBLE, "laser_crystal_bismuth").setCreativeTab(MainRegistry.controlTab);
@@ -490,10 +489,10 @@ public class ModItems {
     public static final Item titanium_plate = new ArmorFSB(MaterialRegistry.aMatTitan, -1, EntityEquipmentSlot.CHEST, Tags.MODID + ":textures/armor/titanium_1.png", "titanium_plate").cloneStats((ArmorFSB) titanium_helmet).setMaxStackSize(1);
     public static final Item titanium_legs = new ArmorFSB(MaterialRegistry.aMatTitan, -1, EntityEquipmentSlot.LEGS, Tags.MODID + ":textures/armor/titanium_2.png", "titanium_legs").cloneStats((ArmorFSB) titanium_helmet).setMaxStackSize(1);
     public static final Item titanium_boots = new ArmorFSB(MaterialRegistry.aMatTitan, -1, EntityEquipmentSlot.FEET, Tags.MODID + ":textures/armor/titanium_1.png", "titanium_boots").cloneStats((ArmorFSB) titanium_helmet).setMaxStackSize(1);
-    public static final Item alloy_helmet = new ArmorFSB(MaterialRegistry.aMatAlloy, -1, EntityEquipmentSlot.HEAD, Tags.MODID + ":textures/armor/alloy_1.png", "alloy_helmet").setMaxStackSize(1);
-    public static final Item alloy_plate = new ArmorFSB(MaterialRegistry.aMatAlloy, -1, EntityEquipmentSlot.CHEST, Tags.MODID + ":textures/armor/alloy_1.png", "alloy_plate").cloneStats((ArmorFSB) alloy_helmet).setMaxStackSize(1);
-    public static final Item alloy_legs = new ArmorFSB(MaterialRegistry.aMatAlloy, -1, EntityEquipmentSlot.LEGS, Tags.MODID + ":textures/armor/alloy_2.png", "alloy_legs").cloneStats((ArmorFSB) alloy_helmet).setMaxStackSize(1);
-    public static final Item alloy_boots = new ArmorFSB(MaterialRegistry.aMatAlloy, -1, EntityEquipmentSlot.FEET, Tags.MODID + ":textures/armor/alloy_1.png", "alloy_boots").cloneStats((ArmorFSB) alloy_helmet).setMaxStackSize(1);
+    @Deprecated public static final Item alloy_helmet = new ArmorFSB(MaterialRegistry.aMatAlloy, -1, EntityEquipmentSlot.HEAD, Tags.MODID + ":textures/armor/alloy_1.png", "alloy_helmet").setMaxStackSize(1);
+    @Deprecated public static final Item alloy_plate = new ArmorFSB(MaterialRegistry.aMatAlloy, -1, EntityEquipmentSlot.CHEST, Tags.MODID + ":textures/armor/alloy_1.png", "alloy_plate").cloneStats((ArmorFSB) alloy_helmet).setMaxStackSize(1);
+    @Deprecated public static final Item alloy_legs = new ArmorFSB(MaterialRegistry.aMatAlloy, -1, EntityEquipmentSlot.LEGS, Tags.MODID + ":textures/armor/alloy_2.png", "alloy_legs").cloneStats((ArmorFSB) alloy_helmet).setMaxStackSize(1);
+    @Deprecated public static final Item alloy_boots = new ArmorFSB(MaterialRegistry.aMatAlloy, -1, EntityEquipmentSlot.FEET, Tags.MODID + ":textures/armor/alloy_1.png", "alloy_boots").cloneStats((ArmorFSB) alloy_helmet).setMaxStackSize(1);
     public static final Item cobalt_helmet = new ArmorFSB(MaterialRegistry.aMatCobalt, -1, EntityEquipmentSlot.HEAD, Tags.MODID + ":textures/armor/cobalt_1.png", "cobalt_helmet");
     public static final Item cobalt_plate = new ArmorFSB(MaterialRegistry.aMatCobalt, -1, EntityEquipmentSlot.CHEST, Tags.MODID + ":textures/armor/cobalt_1.png", "cobalt_plate").cloneStats((ArmorFSB) cobalt_helmet).setMaxStackSize(1);
     public static final Item cobalt_legs = new ArmorFSB(MaterialRegistry.aMatCobalt, -1, EntityEquipmentSlot.LEGS, Tags.MODID + ":textures/armor/cobalt_2.png", "cobalt_legs").cloneStats((ArmorFSB) cobalt_helmet).setMaxStackSize(1);
@@ -774,7 +773,6 @@ public class ModItems {
     public static final Item ingot_titanium = new ItemBakedBase("ingot_titanium").setCreativeTab(MainRegistry.partsTab);
     public static final Item ingot_copper = new ItemBakedBase("ingot_copper").setCreativeTab(MainRegistry.partsTab);
     public static final Item ingot_red_copper = new ItemBakedBase("ingot_red_copper").setCreativeTab(MainRegistry.partsTab);
-    public static final Item ingot_advanced_alloy = new ItemBakedBase("ingot_advanced_alloy").setCreativeTab(MainRegistry.partsTab);
     public static final Item ingot_tungsten = new ItemBakedBase("ingot_tungsten").setCreativeTab(MainRegistry.partsTab);
     public static final Item ingot_aluminium = new ItemBakedBase("ingot_aluminium").setCreativeTab(MainRegistry.partsTab);
     public static final Item ingot_beryllium = new ItemBakedBase("ingot_beryllium").setCreativeTab(MainRegistry.partsTab);
@@ -1013,7 +1011,6 @@ public class ModItems {
     public static final Item powder_beryllium = new ItemBase("powder_beryllium").setCreativeTab(MainRegistry.partsTab);
     public static final Item powder_aluminium = new ItemBase("powder_aluminium").setCreativeTab(MainRegistry.partsTab);
     public static final Item powder_lead = new ItemCustomLore("powder_lead").setCreativeTab(MainRegistry.partsTab);
-    public static final Item powder_advanced_alloy = new ItemBase("powder_advanced_alloy").setCreativeTab(MainRegistry.partsTab);
     public static final Item powder_combine_steel = new ItemBase("powder_combine_steel").setCreativeTab(MainRegistry.partsTab);
     public static final Item powder_tcalloy = new ItemCustomLore("powder_tcalloy").setCreativeTab(MainRegistry.partsTab);
     public static final Item powder_cdalloy = new ItemBase("powder_cdalloy").setCreativeTab(MainRegistry.partsTab);
@@ -1244,9 +1241,9 @@ public class ModItems {
     public static final Item wire_fine = new ItemAutogen(MaterialShapes.WIRE, "wire_fine")
             .aot(Mats.MAT_ALUMINIUM, "wire_aluminium").aot(Mats.MAT_COPPER, "wire_copper")
             .aot(Mats.MAT_MINGRADE, "wire_red_copper").aot(Mats.MAT_GOLD, "wire_gold")
-            .aot(Mats.MAT_TUNGSTEN, "wire_tungsten").aot(Mats.MAT_ALLOY, "wire_advanced_alloy")
-            .aot(Mats.MAT_CARBON, "wire_carbon").aot(Mats.MAT_SCHRABIDIUM, "wire_schrabidium")
-            .aot(Mats.MAT_MAGTUNG, "wire_magnetized_tungsten").setCreativeTab(MainRegistry.partsTab);
+            .aot(Mats.MAT_TUNGSTEN, "wire_tungsten").aot(Mats.MAT_CARBON, "wire_carbon")
+            .aot(Mats.MAT_SCHRABIDIUM, "wire_schrabidium").aot(Mats.MAT_MAGTUNG, "wire_magnetized_tungsten")
+            .setCreativeTab(MainRegistry.partsTab);
     public static final Item wire_dense = new ItemAutogen(MaterialShapes.DENSEWIRE, "wire_dense").setCreativeTab(MainRegistry.partsTab);
     public static final Item bolt = new ItemAutogen(MaterialShapes.BOLT, "bolt").oun("boltntm").setCreativeTab(MainRegistry.partsTab);
     public static final Item bolt_spike = new ItemCustomLore("bolt_spike").setCreativeTab(MainRegistry.partsTab);
@@ -1431,22 +1428,26 @@ public class ModItems {
             .addAbility(IWeaponAbility.BEHEADER, 0).setMaxStackSize(1);
     public static final Item titanium_shovel = new ItemToolAbility(3.5F, -2.8F, 0, MaterialRegistry.enumToolMaterialTitanium, EnumToolType.SHOVEL, "titanium_shovel");
     public static final Item titanium_hoe = new ModHoe(MaterialRegistry.enumToolMaterialTitanium, "titanium_hoe").setMaxStackSize(1).setCreativeTab(CreativeTabs.TOOLS);
-    public static final Item steel_sword = new ItemSwordAbility(6F, 0, MaterialRegistry.enumToolMaterialSteel, "steel_sword");
-    public static final Item steel_pickaxe = new ItemToolAbility(4F, -2.8F, 0, MaterialRegistry.enumToolMaterialSteel, EnumToolType.PICKAXE, "steel_pickaxe");
-    public static final Item steel_axe = new ItemToolAbility(5F, -2.8F, 0, MaterialRegistry.enumToolMaterialSteel, EnumToolType.AXE, "steel_axe")
-            .addAbility(IWeaponAbility.BEHEADER, 0);
-    public static final Item steel_shovel = new ItemToolAbility(3F, -2.8F, 0, MaterialRegistry.enumToolMaterialSteel, EnumToolType.SHOVEL, "steel_shovel");
-    public static final Item steel_hoe = new ModHoe(MaterialRegistry.enumToolMaterialSteel, "steel_hoe").setMaxStackSize(1).setCreativeTab(CreativeTabs.TOOLS);
-    public static final Item alloy_sword = new ItemSwordAbility(8F, 0, MaterialRegistry.enumToolMaterialAlloy, "alloy_sword")
+    public static final Item steel_sword = new ItemSwordAbility(6F, 0, MaterialRegistry.enumToolMaterialSteel, "steel_sword")
             .addAbility(IWeaponAbility.STUN, 0);
-    public static final Item alloy_pickaxe = new ItemToolAbility(5F, -2.8F, 0, MaterialRegistry.enumToolMaterialAlloy, EnumToolType.PICKAXE, "alloy_pickaxe")
+    public static final Item steel_pickaxe = new ItemToolAbility(4F, -2.8F, 0, MaterialRegistry.enumToolMaterialSteel, EnumToolType.PICKAXE, "steel_pickaxe")
             .addAbility(IToolAreaAbility.RECURSION, 0);
-    public static final Item alloy_axe = new ItemToolAbility(7F, -2.8F, 0, MaterialRegistry.enumToolMaterialAlloy, EnumToolType.AXE, "alloy_axe")
+    public static final Item steel_axe = new ItemToolAbility(5F, -2.8F, 0, MaterialRegistry.enumToolMaterialSteel, EnumToolType.AXE, "steel_axe")
             .addAbility(IToolAreaAbility.RECURSION, 0)
             .addAbility(IWeaponAbility.BEHEADER, 0);
-    public static final Item alloy_shovel = new ItemToolAbility(4F, -2.8F, 0, MaterialRegistry.enumToolMaterialAlloy, EnumToolType.SHOVEL, "alloy_shovel")
+    public static final Item steel_shovel = new ItemToolAbility(3F, -2.8F, 0, MaterialRegistry.enumToolMaterialSteel, EnumToolType.SHOVEL, "steel_shovel")
             .addAbility(IToolAreaAbility.RECURSION, 0);
-    public static final Item alloy_hoe = new ModHoe(MaterialRegistry.enumToolMaterialAlloy, "alloy_hoe").setCreativeTab(CreativeTabs.TOOLS);
+    public static final Item steel_hoe = new ModHoe(MaterialRegistry.enumToolMaterialSteel, "steel_hoe").setMaxStackSize(1).setCreativeTab(CreativeTabs.TOOLS);
+    @Deprecated public static final Item alloy_sword = new ItemSwordAbility(8F, 0, MaterialRegistry.enumToolMaterialAlloy, "alloy_sword")
+            .addAbility(IWeaponAbility.STUN, 0);
+    @Deprecated public static final Item alloy_pickaxe = new ItemToolAbility(5F, -2.8F, 0, MaterialRegistry.enumToolMaterialAlloy, EnumToolType.PICKAXE, "alloy_pickaxe")
+            .addAbility(IToolAreaAbility.RECURSION, 0);
+    @Deprecated public static final Item alloy_axe = new ItemToolAbility(7F, -2.8F, 0, MaterialRegistry.enumToolMaterialAlloy, EnumToolType.AXE, "alloy_axe")
+            .addAbility(IToolAreaAbility.RECURSION, 0)
+            .addAbility(IWeaponAbility.BEHEADER, 0);
+    @Deprecated public static final Item alloy_shovel = new ItemToolAbility(4F, -2.8F, 0, MaterialRegistry.enumToolMaterialAlloy, EnumToolType.SHOVEL, "alloy_shovel")
+            .addAbility(IToolAreaAbility.RECURSION, 0);
+    @Deprecated public static final Item alloy_hoe = new ModHoe(MaterialRegistry.enumToolMaterialAlloy, "alloy_hoe").setCreativeTab(CreativeTabs.TOOLS);
     public static final Item elec_sword = new ItemSwordAbilityPower(12.5F, 0, MaterialRegistry.enumToolMaterialElec, 500000, 1000, 100, "elec_sword")
             .addAbility(IWeaponAbility.STUN, 2);
     public static final Item elec_pickaxe = new ItemToolAbilityPower(10F, -2.8F, 0, MaterialRegistry.enumToolMaterialElec, EnumToolType.PICKAXE, 500000, 1000, 100, "elec_pickaxe")
@@ -1714,7 +1715,6 @@ public class ModItems {
     public static final Item plate_gold = new ItemBase("plate_gold").setCreativeTab(MainRegistry.partsTab);
     public static final Item plate_lead = new ItemCustomLore("plate_lead").setCreativeTab(MainRegistry.partsTab);
     public static final Item plate_steel = new ItemBase("plate_steel").setCreativeTab(MainRegistry.partsTab);
-    public static final Item plate_advanced_alloy = new ItemBase("plate_advanced_alloy").setCreativeTab(MainRegistry.partsTab);
     public static final Item plate_combine_steel = new ItemBase("plate_combine_steel").setCreativeTab(MainRegistry.partsTab);
     public static final Item plate_paa = new ItemCustomLore("plate_paa").setCreativeTab(MainRegistry.partsTab);
     public static final Item plate_saturnite = new ItemBase("plate_saturnite").setCreativeTab(MainRegistry.partsTab);
@@ -1852,8 +1852,6 @@ public class ModItems {
     public static final Item casing_50 = new ItemBase("casing_50").setCreativeTab(MainRegistry.partsTab);
     public static final Item casing_buckshot = new ItemBase("casing_buckshot").setCreativeTab(MainRegistry.partsTab);
     // Wires and things
-    public static final Item coil_advanced_alloy = new ItemBase("coil_advanced_alloy").setCreativeTab(MainRegistry.partsTab);
-    public static final Item coil_advanced_torus = new ItemBase("coil_advanced_torus").setCreativeTab(MainRegistry.partsTab);
     public static final Item coil_gold = new ItemBase("coil_gold").setCreativeTab(MainRegistry.partsTab);
     public static final Item coil_gold_torus = new ItemBase("coil_gold_torus").setCreativeTab(MainRegistry.partsTab);
     public static final Item coil_tungsten = new ItemBase("coil_tungsten").setCreativeTab(MainRegistry.partsTab);

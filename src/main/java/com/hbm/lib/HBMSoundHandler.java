@@ -24,6 +24,7 @@ public final class HBMSoundHandler {
     public static SoundEvent sparkShoot;
     public static SoundEvent leverStart;
     public static SoundEvent leverStop;
+    public static SoundEvent metalImpact;
     public static SoundEvent spark;
     public static SoundEvent b92Reload;
     public static SoundEvent techBleep;
@@ -430,6 +431,7 @@ public final class HBMSoundHandler {
         sparkShoot = register("weapon.sparkShoot");
         leverStart = register("block.leverStart");
         leverStop = register("block.leverStop");
+        metalImpact = register("block.metalImpact");
         spark = register("block.spark");
         b92Reload = register("weapon.b92Reload");
         techBleep = register("item.techBleep");

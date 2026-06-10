@@ -26,6 +26,7 @@
     "block.assemblerCut": {"category": "block", "sounds": [{"name": "hbm:block/assemblercut", "stream": false}]},
     "block.leverStart": {"subtitle": "subtitles.block.leverStart", "category": "block", "sounds": [{"name": "hbm:block/leverstart", "stream": false}]},
     "block.leverStop": {"subtitle": "subtitles.block.leverStop", "category": "block", "sounds": [{"name": "hbm:block/leverstop", "stream": false}]},
+    "block.metalImpact": {"category": "block", "sounds": ["hbm:block/metalimpact1", "hbm:block/metalimpact2"]},
     "block.spark": {"subtitle": "subtitles.block.spark", "category": "block", "sounds": ["hbm:block/spark1", "hbm:block/spark2", "hbm:block/spark3", "hbm:block/spark4", "hbm:block/spark5", "hbm:block/spark6"]},
     "block.dieselOperate": {"subtitle": "subtitles.block.dieselOperate", "category": "block", "sounds": [{"name": "hbm:block/dieseloperate", "stream": false}]},
     "block.igeneratorOperate": {"subtitle": "subtitles.block.igeneratorOperate", "category": "block", "sounds": [{"name": "hbm:block/igeneratoroperate", "stream": false}]},

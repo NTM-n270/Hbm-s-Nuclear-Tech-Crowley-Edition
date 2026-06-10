@@ -4,6 +4,7 @@ import com.hbm.api.fluidmk2.IFluidStandardReceiverMK2;
 import com.hbm.api.ntl.IPneumaticConnector;
 import com.hbm.api.ntl.ISlotMonitorProvider;
 import com.hbm.api.ntl.SlotMonitor;
+import com.hbm.api.ntl.StackCache;
 import com.hbm.interfaces.AutoRegister;
 import com.hbm.inventory.container.ContainerPneumoStorageClutter;
 import com.hbm.inventory.fluid.Fluids;
@@ -31,6 +32,7 @@ public class TileEntityPneumoStorageClutter extends TileEntityMachineBase implem
     public final SlotMonitor[] monitors;
 
     protected TileEntityPneumoTube.PneumaticNode node;
+    protected boolean wasAvailable = false;
 
     public TileEntityPneumoStorageClutter() {
         super(6 * 9);
@@ -49,6 +51,13 @@ public class TileEntityPneumoStorageClutter extends TileEntityMachineBase implem
     @Override
     public void update() {
         if (!world.isRemote) {
+            boolean isAvailable = this.isAvailable();
+
+            if (isAvailable != wasAvailable) {
+                this.wasAvailable = isAvailable;
+                for (SlotMonitor monitor : monitors) monitor.availabilityHasChanged();
+            }
+
             if (this.node == null || this.node.expired) {
                 this.node = UniNodespace.getNode(world, pos, PneumaticNetwork.THE_PNEUMATIC_PROVIDER);
                 if (this.node == null || this.node.expired) {
@@ -67,13 +76,23 @@ public class TileEntityPneumoStorageClutter extends TileEntityMachineBase implem
             if (this.node != null && !this.node.expired && this.node.hasValidNet()) {
                 this.node.net.storages.put(this, System.currentTimeMillis());
             }
+
+            this.updateMonitors();
+            this.networkPackNT(15);
         }
+    }
+
+    public boolean isAvailable() {
+        return this.isLoaded && !this.isInvalid();
     }
 
     @Override
     public void invalidate() {
         super.invalidate();
         if (!world.isRemote) {
+            for (SlotMonitor monitor : this.monitors) {
+                for (StackCache.CacheSlot cache : monitor.viewedBy) cache.removeMonitor(monitor);
+            }
             if (this.node != null && !this.node.expired && this.node.hasValidNet()) {
                 this.node.net.storages.remove(this);
             }
@@ -87,8 +106,13 @@ public class TileEntityPneumoStorageClutter extends TileEntityMachineBase implem
     @Override
     public void onChunkUnload() {
         super.onChunkUnload();
-        if (!world.isRemote && this.node != null && !this.node.expired && this.node.hasValidNet()) {
-            this.node.net.storages.remove(this);
+        if (!world.isRemote) {
+            for (SlotMonitor monitor : this.monitors) {
+                for (StackCache.CacheSlot cache : monitor.viewedBy) cache.removeMonitor(monitor);
+            }
+            if (this.node != null && !this.node.expired && this.node.hasValidNet()) {
+                this.node.net.storages.remove(this);
+            }
         }
     }
 
@@ -118,8 +142,34 @@ public class TileEntityPneumoStorageClutter extends TileEntityMachineBase implem
     }
 
     @Override
-    public boolean isAvailableToTerminal(int termX, int termY, int termZ) {
-        return true;
+    public long getAmountAt(int index) {
+        ItemStack stack = getSlotAt(index);
+        return stack.isEmpty() ? 0 : stack.getCount();
+    }
+
+    @Override
+    public long useUpItem(int index, long amount) {
+        ItemStack stack = this.inventory.getStackInSlot(index);
+
+        if (!stack.isEmpty()) {
+            int toRemove = (int) Math.min(stack.getCount(), amount);
+            stack.shrink(toRemove);
+            this.markDirty();
+            return amount - toRemove;
+        }
+
+        return amount;
+    }
+
+    @Override
+    public boolean isAvailableToCache(StackCache cache) {
+        return this.isLoaded && !this.isInvalid();
+    }
+
+    @Override
+    public PneumaticNetwork getRelevantNetwork() {
+        if (this.node == null || this.node.expired || !this.node.hasValidNet()) return null;
+        return this.node.net;
     }
 
     @Override

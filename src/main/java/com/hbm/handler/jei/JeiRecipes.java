@@ -43,7 +43,6 @@ public class JeiRecipes {
 
 	private static List<CyclotronRecipe> cyclotronRecipes = null;
 	private static List<AlloyFurnaceRecipe> alloyFurnaceRecipes = null;
-    private static List<CMBFurnaceRecipe> cmbRecipes = null;
 	private static List<GasCentrifugeRecipe> gasCentRecipes = null;
     private static List<StorageDrumRecipe> storageDrumRecipes = null;
 	private static List<RBMKFuelRecipe> rbmkFuelRecipes = null;
@@ -100,24 +99,6 @@ public class JeiRecipes {
 		
 	}
 	
-	public static class CMBFurnaceRecipe implements IRecipeWrapper {
-		
-		private final List<ItemStack> inputs;
-		private final ItemStack output;
-		
-		public CMBFurnaceRecipe(List<ItemStack> inputs, ItemStack output) {
-			this.inputs = inputs;
-			this.output = output; 
-		}
-		
-		@Override
-		public void getIngredients(IIngredients ingredients) {
-			ingredients.setInputs(VanillaTypes.ITEM, inputs);
-			ingredients.setOutput(VanillaTypes.ITEM, output);
-		}
-		
-	}
-
 	public static class GasCentrifugeRecipe implements IRecipeWrapper {
 		private final ItemStack input;
 		private final List<ItemStack> outputs;
@@ -641,17 +622,6 @@ public class JeiRecipes {
 		return batteries;
 	}
 	
-	public static List<CMBFurnaceRecipe> getCMBRecipes() {
-		if(cmbRecipes != null)
-			return cmbRecipes;
-		cmbRecipes = new ArrayList<>();
-		
-		cmbRecipes.add(new CMBFurnaceRecipe(Arrays.asList(new ItemStack(ModItems.ingot_advanced_alloy), new ItemStack(ModItems.ingot_magnetized_tungsten)), new ItemStack(ModItems.ingot_combine_steel, 4)));
-		cmbRecipes.add(new CMBFurnaceRecipe(Arrays.asList(new ItemStack(ModItems.powder_advanced_alloy), new ItemStack(ModItems.powder_magnetized_tungsten)), new ItemStack(ModItems.ingot_combine_steel, 4)));
-		
-		return cmbRecipes;
-	}
-	
 	public static List<GasCentrifugeRecipe> getGasCentrifugeRecipes() {
 		if(gasCentRecipes != null)
 			return gasCentRecipes;
@@ -741,9 +711,9 @@ public class JeiRecipes {
 			return blades;
 		
 		blades = new ArrayList<>();
-		blades.add(new ItemStack(ModItems.blades_advanced_alloy));
 		blades.add(new ItemStack(ModItems.blades_steel));
 		blades.add(new ItemStack(ModItems.blades_titanium));
+		blades.add(new ItemStack(ModItems.blades_desh));
 		return blades;
 	}
 	

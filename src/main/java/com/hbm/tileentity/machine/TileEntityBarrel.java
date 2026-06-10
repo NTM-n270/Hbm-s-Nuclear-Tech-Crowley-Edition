@@ -175,6 +175,7 @@ public class TileEntityBarrel extends TileEntityMachineBase implements ITickable
 
     @Override
     public long getDemand(FluidType type, int pressure) {
+        if (this.tilted) return 0;
         if (this.mode == 2 || this.mode == 3) return 0;
 
         if (tankNew.getPressure() != pressure) return 0;
@@ -237,7 +238,7 @@ public class TileEntityBarrel extends TileEntityMachineBase implements ITickable
                     this.node = null;
                 }
 
-                for (DirPos pos : getConPos()) {
+                if (!this.tilted) for (DirPos pos : getConPos()) {
                     FluidNode dirNode = (FluidNode) UniNodespace.getNode(world, pos.getPos(), tankNew.getTankType().getNetworkProvider());
 
                     if (mode == 2) {

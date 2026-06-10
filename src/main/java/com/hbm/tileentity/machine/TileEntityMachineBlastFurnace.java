@@ -37,6 +37,7 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -75,6 +76,7 @@ public class TileEntityMachineBlastFurnace extends TileEntityMachineBase impleme
 	public void update() {
 
 		if(!world.isRemote) {
+			this.checkTilt(TiltType.CONFIG, false);
 
 			for(DirPos pos : this.getConPos()) {
 				this.trySubscribe(tanks[0].getTankType(), world, pos);
@@ -93,9 +95,9 @@ public class TileEntityMachineBlastFurnace extends TileEntityMachineBase impleme
 			this.speed = 0F;
 			GenericRecipe recipe = BlastFurnaceRecipesNT.INSTANCE.getRecipe(inventory.getStackInSlot(1), inventory.getStackInSlot(2));
 
-			if(recipe != null && this.fuel >= FUEL_RATE && this.canOutput(recipe)) {
+			if(!this.tilted && recipe != null && this.fuel >= FUEL_RATE && this.hasQuantities(recipe) && this.canOutput(recipe)) {
 
-				this.speed = MathHelper.clamp(0.5F + this.tanks[0].getFill() * 4F / this.tanks[0].getMaxFill(), 0.5F, 3F);
+				this.speed = MathHelper.clamp(0.5F + this.tanks[0].getFill() * 8F / this.tanks[0].getMaxFill(), 0.5F, 5F);
 
 				this.isProgressing = true;
 				this.progress += speed / recipe.duration;
@@ -162,6 +164,12 @@ public class TileEntityMachineBlastFurnace extends TileEntityMachineBase impleme
 				new DirPos(pos.getX() + dir.offsetX * 2, pos.getY() + 5, pos.getZ() + dir.offsetZ * 2, dir),
 				new DirPos(pos.getX(), pos.getY() + 7, pos.getZ(), Library.POS_Y)
 		};
+	}
+
+	public boolean hasQuantities(GenericRecipe recipe) {
+		if(recipe.inputItem[0].matchesRecipe(inventory.getStackInSlot(1), false) && recipe.inputItem[1].matchesRecipe(inventory.getStackInSlot(2), false)) return true;
+		if(recipe.inputItem[0].matchesRecipe(inventory.getStackInSlot(2), false) && recipe.inputItem[1].matchesRecipe(inventory.getStackInSlot(1), false)) return true;
+		return false;
 	}
 
 	public boolean canOutput(GenericRecipe recipe) {
@@ -322,4 +330,7 @@ public class TileEntityMachineBlastFurnace extends TileEntityMachineBase impleme
 	@Override public long getProviderSpeed(FluidType type, int pressure) { return Math.max(tanks[1].getFill() * 50 / tanks[1].getMaxFill(), 1); }
 
 	@Override public FluidTankNTM getTankToPaste() { return null; }
+
+	@Override public int getFloorCount() { return 2 * 2; }
+	@Override public BlockPos getFloorPosFromIndex(int index) { return this.standardFloor3x3(index); }
 }

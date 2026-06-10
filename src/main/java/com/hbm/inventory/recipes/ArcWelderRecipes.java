@@ -80,12 +80,6 @@ public class ArcWelderRecipes extends SerializableRecipe {
             new OreDictStack(MINGRADE.wireFine(), 8)));
     recipes.add(
         new ArcWelderRecipe(
-            new ItemStack(ModItems.wire_dense, 1, Mats.MAT_ALLOY.id),
-            100,
-            10_000L,
-            new OreDictStack(ALLOY.wireFine(), 8)));
-    recipes.add(
-        new ArcWelderRecipe(
             new ItemStack(ModItems.wire_dense, 1, Mats.MAT_GOLD.id),
             100,
             10_000L,

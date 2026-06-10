@@ -98,6 +98,7 @@ public class TileEntityFusionTorus extends TileEntityCooledBase implements ITick
     public void update() {
 
         if(!world.isRemote) {
+            this.checkTilt(TiltType.CONFIG, true);
 
             for(int i = 0; i < 4; i++) {
                 if(klystronNodes[i] == null || klystronNodes[i].expired) klystronNodes[i] = createKlystronNode(KlystronNetwork.THE_PROVIDER, ForgeDirection.getOrientation(i + 2));
@@ -173,7 +174,7 @@ public class TileEntityFusionTorus extends TileEntityCooledBase implements ITick
             this.plasmaEnergy = 0;
             this.fuelConsumption = 0;
             this.fusionModule.preUpdate(factor, collectors * 0.5D);
-            this.fusionModule.update(1D, 1D, this.isCool() && ignition, inventory.getStackInSlot(1));
+            this.fusionModule.update(1D, 1D, !this.tilted && this.isCool() && ignition, inventory.getStackInSlot(1));
             this.didProcess = this.fusionModule.didProcess;
             if(this.fusionModule.markDirty) this.markDirty();
             if(didProcess && recipe != null) {
@@ -491,5 +492,14 @@ public class TileEntityFusionTorus extends TileEntityCooledBase implements ITick
         if ((PREFIX_VALUE + "plasma").equals(name))      return "" + this.plasmaEnergy;
         if ((PREFIX_VALUE + "consumption").equals(name)) return "" + (int) (this.fuelConsumption * 100);
         return null;
+    }
+
+    @Override public int getFloorCount() { return 6 * 6; }
+    @Override public BlockPos getFloorPosFromIndex(int index) {
+        return new BlockPos(
+                pos.getX() - 5 + (index / 6) * 2,
+                pos.getY() - 1,
+                pos.getZ() - 5 + (index % 6) * 2
+        );
     }
 }

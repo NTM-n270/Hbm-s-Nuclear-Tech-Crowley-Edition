@@ -48,6 +48,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Optional;
@@ -223,12 +224,14 @@ public class TileEntityReactorZirnox extends TileEntityMachineBase implements IT
     public void update() {
 
         if (!world.isRemote) {
+            this.checkTilt(TiltType.CONFIG, true);
+
             if (redstonePowered) {
                 isOn = true;
             }
             this.output = 0;
 
-            if (world.getTotalWorldTime() % 20 == 0) {
+            if (!tilted && world.getTotalWorldTime() % 20 == 0) {
                 this.updateConnections();
             }
 
@@ -261,7 +264,7 @@ public class TileEntityReactorZirnox extends TileEntityMachineBase implements IT
 
             }
 
-            for (DirPos pos : getConPos()) {
+            if (!this.tilted) for (DirPos pos : getConPos()) {
                 this.sendFluid(steam, world, pos.getPos().getX(), pos.getPos().getY(), pos.getPos().getZ(), pos.getDir());
             }
 
@@ -647,4 +650,7 @@ public class TileEntityReactorZirnox extends TileEntityMachineBase implements IT
         }
         return null;
     }
+
+    @Override public int getFloorCount() { return 3 * 3; }
+    @Override public BlockPos getFloorPosFromIndex(int index) { return this.standardFloor5x5(index); }
 }

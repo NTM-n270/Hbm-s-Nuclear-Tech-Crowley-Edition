@@ -243,7 +243,6 @@ public class MineralRecipes {
         CraftingManager.addRecipeAuto(new ItemStack(Item.getItemFromBlock(ModBlocks.block_schrabidium), 1), "###", "###", "###", '#', ModItems.ingot_schrabidium );
         CraftingManager.addRecipeAuto(new ItemStack(ModBlocks.block_schrabidium_cluster, 1), "#S#", "SXS", "#S#", '#', ModItems.ingot_schrabidium, 'S', ModItems.ingot_starmetal, 'X', ModItems.ingot_schrabidate );
         CraftingManager.addRecipeAuto(new ItemStack(Item.getItemFromBlock(ModBlocks.block_euphemium), 1), "###", "###", "###", '#', ModItems.ingot_euphemium );
-        CraftingManager.addRecipeAuto(new ItemStack(Item.getItemFromBlock(ModBlocks.block_advanced_alloy), 1), "###", "###", "###", '#', ModItems.ingot_advanced_alloy );
         CraftingManager.addRecipeAuto(new ItemStack(Item.getItemFromBlock(ModBlocks.block_magnetized_tungsten), 1), "###", "###", "###", '#', ModItems.ingot_magnetized_tungsten );
         CraftingManager.addRecipeAuto(new ItemStack(Item.getItemFromBlock(ModBlocks.block_combine_steel), 1), "###", "###", "###", '#', ModItems.ingot_combine_steel );
         CraftingManager.addRecipeAuto(new ItemStack(Item.getItemFromBlock(ModBlocks.block_australium), 1), "###", "###", "###", '#', ModItems.ingot_australium );
@@ -293,7 +292,6 @@ public class MineralRecipes {
         CraftingManager.addRecipeAuto(new ItemStack(ModItems.ingot_beryllium, 9), "#", '#', Item.getItemFromBlock(ModBlocks.block_beryllium) );
         CraftingManager.addRecipeAuto(new ItemStack(ModItems.ingot_schrabidium, 9), "#", '#', Item.getItemFromBlock(ModBlocks.block_schrabidium) );
         CraftingManager.addRecipeAuto(new ItemStack(ModItems.ingot_euphemium, 9), "#", '#', Item.getItemFromBlock(ModBlocks.block_euphemium) );
-        CraftingManager.addRecipeAuto(new ItemStack(ModItems.ingot_advanced_alloy, 9), "#", '#', Item.getItemFromBlock(ModBlocks.block_advanced_alloy) );
         CraftingManager.addRecipeAuto(new ItemStack(ModItems.ingot_magnetized_tungsten, 9), "#", '#', Item.getItemFromBlock(ModBlocks.block_magnetized_tungsten) );
         CraftingManager.addRecipeAuto(new ItemStack(ModItems.ingot_combine_steel, 9), "#", '#', Item.getItemFromBlock(ModBlocks.block_combine_steel) );
         CraftingManager.addRecipeAuto(new ItemStack(ModItems.ingot_australium, 9), "#", '#', Item.getItemFromBlock(ModBlocks.block_australium) );

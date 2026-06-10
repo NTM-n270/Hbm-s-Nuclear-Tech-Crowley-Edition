@@ -73,10 +73,6 @@ public class PowderRecipes {
         CraftingManager.addShapelessAuto(new ItemStack(ModItems.powder_fertilizer, 4), ANY_ASH.any(), P_RED.dust(), KNO.dust(), S.dust() );
 
         if(GeneralConfig.enableLBSM && GeneralConfig.enableLBSMSimpleCrafting) {
-            CraftingManager.addShapelessAuto(new ItemStack(ModItems.powder_advanced_alloy, 4), REDSTONE.dust(), IRON.dust(), COAL.dust(), CU.dust() );
-            CraftingManager.addShapelessAuto(new ItemStack(ModItems.powder_advanced_alloy, 4), IRON.dust(), COAL.dust(), MINGRADE.dust(), MINGRADE.dust() );
-            CraftingManager.addShapelessAuto(new ItemStack(ModItems.powder_advanced_alloy, 4), REDSTONE.dust(), CU.dust(), STEEL.dust(), STEEL.dust() );
-            CraftingManager.addShapelessAuto(new ItemStack(ModItems.powder_advanced_alloy, 2), MINGRADE.dust(), STEEL.dust() );
             CraftingManager.addShapelessAuto(new ItemStack(ModItems.powder_red_copper, 2), REDSTONE.dust(), CU.dust() );
             CraftingManager.addShapelessAuto(new ItemStack(ModItems.powder_dura_steel, 2), STEEL.dust(), W.dust() );
             CraftingManager.addShapelessAuto(new ItemStack(ModItems.powder_dura_steel, 2), STEEL.dust(), CO.dust() );

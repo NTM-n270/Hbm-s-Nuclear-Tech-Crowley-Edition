@@ -21,6 +21,12 @@ public class RenderBlastFurnace extends TileEntitySpecialRenderer<TileEntityMach
 		GlStateManager.enableLighting();
 		GlStateManager.disableCull();
 
+		if(furnace.tilted) {
+			GlStateManager.translate(0, -0.25, 0);
+			GlStateManager.rotate(10, 0, 0, 1);
+			GlStateManager.rotate(5, 0, 1, 0);
+		}
+
 		switch(furnace.getBlockMetadata() - BlockDummyable.offset) {
 		case 2: GlStateManager.rotate(90, 0F, 1F, 0F); break;
 		case 4: GlStateManager.rotate(180, 0F, 1F, 0F); break;

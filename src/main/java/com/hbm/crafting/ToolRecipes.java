@@ -40,11 +40,6 @@ public class ToolRecipes {
         addAxe(		CO.ingot(), ModItems.cobalt_axe);
         addShovel(	CO.ingot(), ModItems.cobalt_shovel);
         addHoe(		CO.ingot(), ModItems.cobalt_hoe);
-        addSword(	ALLOY.ingot(), ModItems.alloy_sword);
-        addPickaxe(	ALLOY.ingot(), ModItems.alloy_pickaxe);
-        addAxe(		ALLOY.ingot(), ModItems.alloy_axe);
-        addShovel(	ALLOY.ingot(), ModItems.alloy_shovel);
-        addHoe(		ALLOY.ingot(), ModItems.alloy_hoe);
         addSword(	CMB.ingot(), ModItems.cmb_sword);
         addPickaxe(	CMB.ingot(), ModItems.cmb_pickaxe);
         addAxe(		CMB.ingot(), ModItems.cmb_axe);
@@ -116,7 +111,7 @@ public class ToolRecipes {
         CraftingManager.addRecipeAuto(new ItemStack(ModItems.pollution_detector, 1), "SFS", "SCS", " S ", 'S', STEEL.plate(), 'F', ModItems.filter_coal, 'C', DictFrame.fromOne(ModItems.circuit, EnumCircuitType.VACUUM_TUBE) );
         CraftingManager.addRecipeAuto(new ItemStack(ModItems.ore_density_scanner, 1), "VVV", "CSC", "GGG", 'V', DictFrame.fromOne(ModItems.circuit, EnumCircuitType.VACUUM_TUBE), 'C', DictFrame.fromOne(ModItems.circuit, EnumCircuitType.CAPACITOR), 'S', DictFrame.fromOne(ModItems.circuit, EnumCircuitType.CONTROLLER_CHASSIS), 'G', GOLD.plate() );
         CraftingManager.addRecipeAuto(new ItemStack(ModItems.defuser, 1), " PS", "P P", " P ", 'P', ANY_PLASTIC.ingot(), 'S', STEEL.plate() );
-        CraftingManager.addRecipeAuto(new ItemStack(ModItems.coltan_tool, 1), "ACA", "CXC", "ACA", 'A', ALLOY.ingot(), 'C', CINNABAR.crystal(), 'X', Items.COMPASS );
+        CraftingManager.addRecipeAuto(new ItemStack(ModItems.coltan_tool, 1), "ACA", "CXC", "ACA", 'A', CU.ingot(), 'C', CINNABAR.crystal(), 'X', Items.COMPASS );
         CraftingManager.addRecipeAuto(new ItemStack(ModItems.reacher, 1), "BIB", "P P", "B B", 'B', W.bolt(), 'I', W.ingot(), 'P', ANY_RUBBER.ingot() );
         CraftingManager.addRecipeAuto(new ItemStack(ModItems.sat_designator, 1), "RRD", "PIC", "  P", 'P', GOLD.plate(), 'R', Items.REDSTONE, 'C', DictFrame.fromOne(ModItems.circuit, EnumCircuitType.ADVANCED), 'D', ModItems.sat_chip, 'I', GOLD.ingot() );
         CraftingManager.addShapelessAuto(new ItemStack(ModItems.sat_relay), ModItems.sat_chip, ModItems.ducttape, ModItems.radar_linker );

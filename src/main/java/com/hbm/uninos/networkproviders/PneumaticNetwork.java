@@ -1,6 +1,7 @@
 package com.hbm.uninos.networkproviders;
 
 import com.hbm.api.ntl.ISlotMonitorProvider;
+import com.hbm.api.ntl.StackCache;
 import com.hbm.lib.ForgeDirection;
 import com.hbm.tileentity.machine.TileEntityMachineAutocrafter;
 import com.hbm.tileentity.network.TileEntityPneumoTube;
@@ -44,6 +45,7 @@ public class PneumaticNetwork extends NodeNet<PneumaticNetwork.ReceiverTarget, T
     // not actually individual items, but rather the total "mass", based on max stack size
     public static final int ITEMS_PER_TRANSFER = 64;
     public final HashMap<ISlotMonitorProvider, Long> storages = new HashMap<>();
+    public final LinkedHashSet<StackCache> accessors = new LinkedHashSet<>();
 
     public record ReceiverTarget(BlockPos pos, ForgeDirection pipeDir, TileEntityPneumoTube endpointTube) {
         public ReceiverTarget(BlockPos pos, ForgeDirection pipeDir, TileEntityPneumoTube endpointTube) {
@@ -76,6 +78,28 @@ public class PneumaticNetwork extends NodeNet<PneumaticNetwork.ReceiverTarget, T
         super.addReceiver(receiver);
     }
 
+    public void addStackCache(StackCache accessor) {
+        if (accessors.add(accessor)) {
+            for (ISlotMonitorProvider storage : storages.keySet()) storage.onNewCacheHasJoined(accessor, this);
+        }
+    }
+
+    @Override
+    public void destroy() {
+        super.destroy();
+        for (StackCache cache : accessors) cache.dissolveCache();
+        accessors.clear();
+        storages.clear();
+    }
+
+    @Override
+    public void joinNetworks(NodeNet<ReceiverTarget, TileEntityPneumoTube, TileEntityPneumoTube.PneumaticNode, PneumaticNetwork> network) {
+        super.joinNetworks(network);
+        // dissolve all caches so access points re-register against the merged network next tick
+        for (StackCache cache : accessors) cache.dissolveCache();
+        accessors.clear();
+    }
+
     @Override
     public void update() {
         long now = System.currentTimeMillis();
@@ -102,6 +126,7 @@ public class PneumaticNetwork extends NodeNet<PneumaticNetwork.ReceiverTarget, T
         }
 
         this.storages.entrySet().removeIf(e -> now - e.getValue() > TIMEOUT_MS);
+        this.accessors.removeIf(x -> x.hasExpired);
     }
 
     public boolean send(TileEntity sourceTile, TileEntityPneumoTube tube, ForgeDirection accessDir, int sendOrder, int receiveOrder, int maxRange,

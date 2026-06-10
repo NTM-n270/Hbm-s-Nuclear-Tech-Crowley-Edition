@@ -13,6 +13,8 @@ import net.minecraft.util.ITickable;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 
@@ -67,7 +69,7 @@ public class TileEntityCargoElevator extends TileEntityLoadedBase implements ITi
 
             this.extension = MathHelper.clamp(this.extension, 0D, this.height);
             this.renderPlatform = true;
-            this.networkPackNT(100);
+            this.networkPackNT(300);
         } else {
             if (this.sync > 0) {
                 this.extension = this.extension + ((this.syncExtension - this.extension) / (float) this.sync);
@@ -156,5 +158,11 @@ public class TileEntityCargoElevator extends TileEntityLoadedBase implements ITi
             );
         }
         return bb;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public double getMaxRenderDistanceSquared() {
+        return 65536.0D;
     }
 }
