@@ -2013,6 +2013,9 @@ public class ModItems {
     public static final ItemRBMKPellet rbmk_pellet_balefire_gold = new ItemRBMKPellet("Antihydrogen in a Magnetized Gold-198 Lattice", "rbmk_pellet_balefire_gold");
     public static final ItemRBMKPellet rbmk_pellet_flashlead = new ItemRBMKPellet("Antihydrogen confined by a Magnetized Gold-198 & Lead-209 Lattice", "rbmk_pellet_flashlead");
     public static final ItemRBMKPellet rbmk_pellet_balefire = new ItemRBMKPellet("Draconic Flames", "rbmk_pellet_balefire");
+	public static final ItemRBMKPellet rbmk_pellet_AlAsCuO24P2U2H24 = new ItemRBMKPellet("Aluminium Arsenide And Torbernite!");
+	public static final ItemRBMKPellet rbmk_pellet_goetium = new ItemRBMKPellet("All Hail The 72");
+	public static final ItemRBMKPellet rbmk_pellet_BZB = new ItemRBMKPellet("The Lord Of Neutrons, and also the flies cuz why not?");
     public static final ItemRBMKPellet rbmk_pellet_drx = new ItemRBMKPellet(TextFormatting.OBFUSCATED + "can't you hear, can't you hear the thunder?", "rbmk_pellet_drx");
 
     static int tintUranium = 0x868D82;
