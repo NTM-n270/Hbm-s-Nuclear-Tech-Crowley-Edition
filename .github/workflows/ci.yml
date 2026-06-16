@@ -39,7 +39,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build with Gradle
-        run: ./gradlew releaseBuild
+        run: ./gradlew assemble
 
       - name: Prepare artifact bundle
         shell: bash
