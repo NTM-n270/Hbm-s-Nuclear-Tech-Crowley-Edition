@@ -3,7 +3,7 @@ name: CI Build
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
 
 concurrency:
@@ -175,7 +175,7 @@ jobs:
           echo 'No crash reports detected'
 
       - name: Resolve snapshot version
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'Warfactory-Official/Hbm-s-Nuclear-Tech-CE'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'Warfactory-Official/Hbm-s-Nuclear-Tech-CE'
         shell: bash
         run: |
           set -euo pipefail
@@ -184,7 +184,7 @@ jobs:
           echo "RELEASE_VERSION=${MOD_VERSION}-SNAPSHOT" >> "$GITHUB_ENV"
 
       - name: Publish
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'Warfactory-Official/Hbm-s-Nuclear-Tech-CE'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'Warfactory-Official/Hbm-s-Nuclear-Tech-CE'
         env:
           MAVEN_USER: ${{ secrets.MAVEN_USER }}
           MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
