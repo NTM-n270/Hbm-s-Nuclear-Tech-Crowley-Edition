@@ -2012,6 +2012,7 @@ public class ModItems {
     public static final ItemRBMKPellet rbmk_pellet_pu238be = new ItemRBMKPellet("Plutonium-238 & Beryllium Neutron Source", "rbmk_pellet_pu238be");
     public static final ItemRBMKPellet rbmk_pellet_balefire_gold = new ItemRBMKPellet("Antihydrogen in a Magnetized Gold-198 Lattice", "rbmk_pellet_balefire_gold");
     public static final ItemRBMKPellet rbmk_pellet_flashlead = new ItemRBMKPellet("Antihydrogen confined by a Magnetized Gold-198 & Lead-209 Lattice", "rbmk_pellet_flashlead");
+	public static final ItemRBMKPellet rbmk_pellet_co60 = new ItemRBMKPellet("Cobalt-60 Gamma Source", "rbmk_pellet_co60");
     public static final ItemRBMKPellet rbmk_pellet_balefire = new ItemRBMKPellet("Draconic Flames", "rbmk_pellet_balefire");
     public static final ItemRBMKPellet rbmk_pellet_drx = new ItemRBMKPellet(TextFormatting.OBFUSCATED + "can't you hear, can't you hear the thunder?", "rbmk_pellet_drx");
 
@@ -2028,6 +2029,7 @@ public class ModItems {
     static int tintFlashgold = 0xDC9613;
     static int tintFlashlead = 0x7B7B87;
     static int tintBalefire = 0xB2FF1B;
+	static int tintCobalt = 0x5D8DAA;
     static int tintDRX = 0xD77276;
 
     public static final Item rbmk_fuel_empty = new ItemBase("rbmk_fuel_empty").setMaxStackSize(1).setCreativeTab(MainRegistry.controlTab);
@@ -2238,6 +2240,16 @@ public class ModItems {
             .setXenon(0.0D, 50D)
             .setMeltingPoint(2000)
             .setTint(tintFlashgold);
+	 public static final ItemRBMKRod rbmk_fuel_co60 = new ItemRBMKRod(rbmk_pellet_co60, "rbmk_fuel_co60")
+            .setYield(25000000D)
+            .setStats(0D, 20)
+            .setFunction(EnumBurnFunc.PASSIVE)
+            .setDepletionFunction(EnumDepleteFunc.LINEAR)
+            .setXenon(0.0D, 50D)
+            .setHeat(0.1D)
+            .setDiffusion(0.05D)
+            .setMeltingPoint(1500)
+            .setTint(tintCobalt);
     public static final ItemRBMKRod rbmk_fuel_flashlead = new ItemRBMKRod(rbmk_pellet_flashlead, "rbmk_fuel_flashlead")
             .setYield(250000000D)
             .setStats(40, 50)
