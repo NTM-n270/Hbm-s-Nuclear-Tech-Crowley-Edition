@@ -5413,6 +5413,7 @@ item.rbmk_pellet_meu.name=MEU Fuel Pellet
 item.rbmk_pellet_mox.name=MOX Fuel Pellet
 item.rbmk_pellet_po210be.name=Po210Be Neutron Source Pellet
 item.rbmk_pellet_pu238be.name=Pu238Be Neutron Source Pellet
+item.rbmk_pellet_co60.name=Cobalt-60 Fuel Pellet
 item.rbmk_pellet_ra226be.name=Ra226Be Neutron Source Pellet
 item.rbmk_pellet_thmeu.name=ThMEU Fuel Pellet
 item.rbmk_pellet_ueu.name=NU Fuel Pellet
