@@ -332,8 +332,6 @@ public class Fluids {
         DEATH =					new FluidType("DEATH",				0x717A88, 2, 0, 1, EnumSymbol.ACID).setTemp(300).addTraits(new FT_Corrosive(80), new FT_Poison(true, 4), LEADCON, LIQUID, VISCOUS);
         ETHANOL =				new FluidType("ETHANOL",			0xe0ffff, 2, 3, 0, EnumSymbol.NONE).addContainers(new CD_Canister(0xEAFFF3)).addTraits(new FT_Flammable(75_000), new FT_Combustible(FuelGrade.HIGH, 200_000), LIQUID, P_FUEL);
         HEAVYWATER =			new FluidType("HEAVYWATER",			0x00a0b0, 1, 0, 0, EnumSymbol.NONE).addTraits(LIQUID);
-        BORIC_ACID_WATER =		new FluidType("BORIC_ACID_WATER",		0x4DB2C4, 1, 0, 0, EnumSymbol.ACID).setTemp(20).addTraits(LIQUID, new FT_Corrosive(15));
-        HOT_BORIC_ACID_WATER =	new FluidType("HOT_BORIC_ACID_WATER",	0x8AD8E8, 1, 0, 0, EnumSymbol.ACID).setTemp(80).addTraits(LIQUID, new FT_Corrosive(15));
         CRACKOIL =				new FluidType("CRACKOIL",			0x020202, 2, 1, 0, EnumSymbol.NONE).addContainers(new CD_Canister(0x424242)).addTraits(new FT_Flammable(10_000), LIQUID, VISCOUS, P_OIL);
         COALOIL =				new FluidType("COALOIL",			0x020202, 2, 1, 0, EnumSymbol.NONE).addContainers(new CD_Canister(0x424242)).addTraits(new FT_Flammable(10_000), LIQUID, VISCOUS, P_OIL);
         HOTCRACKOIL =			new FluidType("HOTCRACKOIL",		0x300900, 2, 3, 0, EnumSymbol.NONE).setTemp(350).addTraits(LIQUID, VISCOUS, P_OIL);
@@ -434,6 +432,9 @@ public class Fluids {
 
         // ^ ^ ^ ^ ^ ^ ^ ^
         //ADD NEW FLUIDS HERE
+
+        BORIC_ACID_WATER =		new FluidType("BORIC_ACID_WATER",		0x4DB2C4, 1, 0, 0, EnumSymbol.ACID).setTemp(20).addTraits(LIQUID, new FT_Corrosive(15));
+        HOT_BORIC_ACID_WATER =	new FluidType("HOT_BORIC_ACID_WATER",	0x8AD8E8, 1, 0, 0, EnumSymbol.ACID).setTemp(80).addTraits(LIQUID, new FT_Corrosive(15));
 
         File folder = MainRegistry.configHbmDir;
         File customTypes = new File(folder.getAbsolutePath() + File.separatorChar + "hbmFluidTypes.json");
