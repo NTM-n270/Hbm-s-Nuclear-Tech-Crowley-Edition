@@ -5378,6 +5378,7 @@ item.rbmk_fuel_mox.name=MOX RBMK Fuel Rod
 item.rbmk_fuel_po210be.name=Po210Be RBMK Neutron Source
 item.rbmk_fuel_pu238be.name=Pu238Be RBMK Neutron Source
 item.rbmk_fuel_ra226be.name=Ra226Be RBMK Neutron Source
+item.rbmk_fuel_co60.name=Cobalt-60 RBMK Fuel Rod
 item.rbmk_fuel_thmeu.name=ThMEU RBMK Fuel Rod
 item.rbmk_fuel_ueu.name=NU RBMK Fuel Rod
 item.rbmk_fuel_unobtainium.name=Unobtainium RBMK Neutron Rod
