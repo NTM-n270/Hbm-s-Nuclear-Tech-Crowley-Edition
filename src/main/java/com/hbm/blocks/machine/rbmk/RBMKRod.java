@@ -74,7 +74,7 @@ public class RBMKRod extends RBMKBase {
 			TileEntity te = world.getTileEntity(pos);
 			if(te instanceof TileEntityRBMKRod tile) {
                 if(TileEntityRBMKBase.explodeOnBroken) {
-					if(!tile.inventory.getStackInSlot(0).isEmpty() && tile.inventory.getStackInSlot(0).getItem() instanceof ItemRBMKRod && ItemRBMKRod.getHullHeat(tile.inventory.getStackInSlot(0)) >= 1500) {
+					if(!tile.inventory.getStackInSlot(0).isEmpty() && tile.inventory.getStackInSlot(0).getItem() instanceof ItemRBMKRod && ItemRBMKRod.getHullHeat(tile.inventory.getStackInSlot(0)) >= 6000) {
 						tile.meltdown();
 					}
 				}
