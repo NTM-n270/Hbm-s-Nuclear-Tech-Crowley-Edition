@@ -770,6 +770,7 @@ public class ModItems {
 
     //Materials
     public static final Item ingot_steel = new ItemBakedBase("ingot_steel").setCreativeTab(MainRegistry.partsTab);
+	public static final Item ingot_aleisterium1875 = new ItemBakedBase("ingot_aleisterium1875").setCreativeTab(MainRegistry.partsTab);
     public static final Item ingot_titanium = new ItemBakedBase("ingot_titanium").setCreativeTab(MainRegistry.partsTab);
     public static final Item ingot_copper = new ItemBakedBase("ingot_copper").setCreativeTab(MainRegistry.partsTab);
     public static final Item ingot_red_copper = new ItemBakedBase("ingot_red_copper").setCreativeTab(MainRegistry.partsTab);
