@@ -858,6 +858,7 @@ public class ModItems {
     public static final Item ingot_firebrick = new ItemBakedBase("ingot_firebrick").setCreativeTab(MainRegistry.partsTab);
     public static final Item ingot_cobalt = new ItemCustomLore("ingot_cobalt").setCreativeTab(MainRegistry.partsTab);
     public static final Item ingot_co60 = new ItemBakedBase("ingot_co60").setCreativeTab(MainRegistry.partsTab);
+	public static final Item ingot_aleisterium1875 = new ItemBakedBase("ingot_aleisterium1875").setCreativeTab(MainRegistry.partsTab);
     public static final Item ingot_sr90 = new ItemBakedBase("ingot_sr90").setCreativeTab(MainRegistry.partsTab);
     public static final Item ingot_iodine = new ItemCustomLore("ingot_iodine").setCreativeTab(MainRegistry.partsTab);
     public static final Item ingot_i131 = new ItemBakedBase("ingot_i131").setCreativeTab(MainRegistry.partsTab);
