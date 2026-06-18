@@ -38,6 +38,7 @@ public class RBMKFuelRecipes {
 		addRod(ModItems.rbmk_fuel_po210be);
 		addRod(ModItems.rbmk_fuel_pu238be);
 		addRod(ModItems.rbmk_fuel_co60);
+		addRod(ModItems.rbmk_fuel_ale1875);
 		addRod(ModItems.rbmk_fuel_balefire_gold);
 		addRod(ModItems.rbmk_fuel_flashlead);
 		addRod(ModItems.rbmk_fuel_zfb_bismuth);
