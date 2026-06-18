@@ -112,6 +112,7 @@ public class RodRecipes {
         addRBMKRod(ModItems.billet_po210be, ModItems.rbmk_fuel_po210be);
         addRBMKRod(ModItems.billet_ra226be, ModItems.rbmk_fuel_ra226be);
         addRBMKRod(ModItems.billet_co60, ModItems.rbmk_fuel_co60);
+        addRBMKRod(ModItems.ingot_aleisterium1875, ModItems.rbmk_fuel_ale1875);
         addRBMKRod(ModItems.billet_pu238be, ModItems.rbmk_fuel_pu238be);
         addRBMKRod(ModItems.billet_australium_lesser, ModItems.rbmk_fuel_leaus);
         addRBMKRod(ModItems.billet_australium_greater, ModItems.rbmk_fuel_heaus);
