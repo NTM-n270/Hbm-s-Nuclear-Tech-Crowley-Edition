@@ -1,0 +1,11 @@
+{
+	"name": "The Radio Demon Core",
+	"icon": ["hbm:radiodemon_core", 1, 0],
+    "trigger": [["hbm:radiodemon_core"]],
+    "title": {
+        "en_us": "The Radio Demon Core (Hazbin Hotel)",
+    },
+	"content": {
+		"en_us": "Obtainable by putting the closed demon core into the RBMK Irradation Channel, yes this is a joke item derived from Alastor, now stop asking"
+	}
+}
